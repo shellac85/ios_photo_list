@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UITableViewController {
     
-    var pictures = [String]()                                   //()=Create One Now
+    var pictures = [String]()                                           //()=Create One Now, in this case an array
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +18,7 @@ class ViewController: UITableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true //ios11 title size
         
         let fm = FileManager.default
-        let path = Bundle.main.resourcePath!                    //!= implicitly unwrapped optional -variable or constant that might hold the data or might not, but we’re 100% certain it does
+        let path = Bundle.main.resourcePath!                            //!= implicitly unwrapped optional -variable or constant that might                                                         hold the data or might not, but we’re 100% certain it does
         let items = try! fm.contentsOfDirectory(atPath: path)
         
         for item in items{
@@ -46,7 +46,6 @@ class ViewController: UITableViewController {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
             // 2: success! Set its selectedImage property
             vc.selectedImage = pictures[indexPath.row]
-            
             // 3: now push it onto the navigation controller
             navigationController?.pushViewController(vc, animated: true)
         }
